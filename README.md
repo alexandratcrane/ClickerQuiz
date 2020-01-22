@@ -49,7 +49,7 @@ git clone https://github.com/alexandratcrane/ClickerQuiz.git
 
 * **Alexandra Crane** - [github](https://github.com/alexandratcrane)
 
-* **Paulina Adamski** - [github]https://github.com/paulinusia)
+* **Paulina Adamski** - [github](https://github.com/paulinusia)
 
 
 ## Acknowledgments
