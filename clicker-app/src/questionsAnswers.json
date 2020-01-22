@@ -1,0 +1,7 @@
+{
+    "question1": {"question":"an interesting question", "answerCorrect": true,
+         "optionA":true, "optionB":false},
+    "question2":{"question":"Argentina is a city", "answerCorrect": false,
+        "optionA":true, "optionB":false},
+    "question3":{"question":"a really dumb question", "answerCorrect":true, "optionA":true, "optionB":false}
+    }
