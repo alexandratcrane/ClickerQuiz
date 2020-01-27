@@ -56,7 +56,7 @@ export default {
         const data = JSON.stringify(this.JsonData)
     
     try { alert(data) }
-    catch(e) { alert('user input not saved'); }
+    catch(e) { alert('json not saved'); }
         }
     }
 
