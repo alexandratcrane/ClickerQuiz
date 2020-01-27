@@ -1,46 +1,70 @@
 <template>
     <div>
         <v-form
-      ref="form"
-      v-model="valid"
-      >
-        <v-col
-            v-for="q in JsonData"
-            :key="q.question"
-            cols="3"
-             align="center"  
-        >
-        
-          <v-card
-            :color="q.color"
-            dark
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title
-                  class="headline"
-                  v-text="q.question"
-                ></v-card-title>
-                <input v-model="q.answer" placeholder="Your answer">
-                <p>Your answer: {{ q.answer }}</p>
-
-                </div>
-              </div>
-            </v-card>
-    </v-col>
-    <v-btn
-        :disabled="!valid"
-        color="success"
-        type="submit"
-        class="mr-4"
-        v-on:click="editJSON"
-      >
-      
-      </v-btn>
-        </v-form>
+            ref="form"
+            v-model="valid">
      
-    </div>
+            <v-col
+                v-for="q in fill"
+                :key="q.question">
+
+                <v-card
+                    raised
+                    max-width="400"
+                    class="mx-auto">
+
+                    <div>
+
+                        <v-card-title
+                            class="Headline"
+                            v-text="q.question">
+                        </v-card-title>
+
+
+                        <input v-model="q.answer" placeholder="Your answer">
+                        <p>Your answer: {{ q.answer }}</p>     
+
+                    </div>
+                </v-card>
+            
+            </v-col>
+                <v-col
+                v-for="b in button"
+                :key="b.question">
+
+                <v-card
+                    raised
+                    max-width="400"
+                    class="mx-auto">
+                    <v-radio-group v-model="radioGroup">
+                    <p> {{b.question}} </p>
+
+      <v-radio
+         v-for="n in b.button"
+         :key="n" 
+         :label="`${n}`"
+      ></v-radio>
+    </v-radio-group>
+                </v-card>
+        </v-col>
+
+    
+
+        <v-btn
+            :disabled="!valid"
+           outlined color="success"
+            type="submit"
+            class="mx-auto text-center"
+            
+            extra large
+
+            v-on:click="editJSON">
+        Export 
+        </v-btn>
+    </v-form>   
+</div>
 </template>
+
 
 <script>
 import Json from '../json/data.json'
@@ -48,15 +72,16 @@ import Json from '../json/data.json'
 export default {
     data() {
         return{
-           JsonData: Json.json
+           fill: Json.filled,
+           button: Json.buttons
         }
     },
     methods: {
         editJSON(){
-        const data = JSON.stringify(this.JsonData)
+        const data = JSON.stringify(this.fill)
     
     try { alert(data) }
-    catch(e) { alert('json not saved'); }
+    catch(e) { alert('j son not saved'); }
         }
     }
 
@@ -64,5 +89,15 @@ export default {
 </script>
 
 <style scoped>
+.v-card__text, .v-card__title  {
+  word-break: normal; 
+  
+  text-align: center;
+}
 
+.v-btn{
+    margin-bottom: 5%;
+
+    margin-left: 50%;
+}
 </style>
