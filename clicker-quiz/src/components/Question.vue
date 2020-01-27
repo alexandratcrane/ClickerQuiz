@@ -2,9 +2,10 @@
     <div>
         <v-form
       ref="form"
-      v-model="valid">
+      v-model="valid"
+      >
         <v-col
-            v-for="q in test"
+            v-for="q in JsonData"
             :key="q.question"
             cols="3"
              align="center"  
@@ -20,8 +21,8 @@
                   class="headline"
                   v-text="q.question"
                 ></v-card-title>
-                <input v-model="q.answer" placeholder="Your answer" required>
-                <p>Your answer: {{ answer }}</p>
+                <input v-model="q.answer" placeholder="Your answer">
+                <p>Your answer: {{ q.answer }}</p>
 
                 </div>
               </div>
@@ -30,10 +31,11 @@
     <v-btn
         :disabled="!valid"
         color="success"
+        type="submit"
         class="mr-4"
-        @click="validate"
+        v-on:click="editJSON"
       >
-        Validate
+      
       </v-btn>
         </v-form>
      
@@ -41,19 +43,23 @@
 </template>
 
 <script>
+import Json from '../json/data.json'
+
 export default {
     data() {
         return{
-            test:[
-                { question: 1, answer: '', color: 'blue'},
-                { question: 2, answer: '',color: 'blue'},
-                { question: 3, answer: '',color: 'blue'},
-                { question: 4, answer: '',color: 'blue'},
-                { question: 5, answer: '',color: 'blue'},
-                { question: 6, answer: '',color: 'blue'}
-            ]
+           JsonData: Json.json
+        }
+    },
+    methods: {
+        editJSON(){
+        const data = JSON.stringify(this.JsonData)
+    
+    try { alert(data) }
+    catch(e) { alert('user input not saved'); }
         }
     }
+
 }
 </script>
 
