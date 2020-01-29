@@ -21,7 +21,7 @@
                         </v-card-title>
 
 
-                        <input v-model="q.answer" placeholder="Your answer">
+                        <v-text-field max-width="300" outlined v-model="q.answer" placeholder="Your answer"></v-text-field>
                         <p>Your answer: {{ q.answer }}</p>     
 
                     </div>
@@ -100,4 +100,10 @@ export default {
 
     margin-left: 50%;
 }
+.v-text-field{
+    margin-left: 50%;
+    
+
+    }
+
 </style>
