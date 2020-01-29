@@ -5,7 +5,8 @@
       color="primary"
       dark
     >
-      <h1> hi </h1>
+      <h1 class="mx-auto"> Clicker Quiz</h1>
+      
     </v-app-bar>
 
     <v-content>

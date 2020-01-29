@@ -37,7 +37,7 @@
                     max-width="400"
                     class="mx-auto">
                     <v-radio-group v-model="radioGroup">
-                    <p> {{b.question}} </p>
+                <v-card-title>{{b.question}} </v-card-title>
 
       <v-radio
          v-for="n in b.button"
