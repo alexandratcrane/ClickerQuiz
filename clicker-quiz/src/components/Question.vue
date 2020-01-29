@@ -28,6 +28,8 @@
                 </v-card>
             
             </v-col>
+                
+                
                 <v-col
                 v-for="b in button"
                 :key="b.question">
@@ -55,10 +57,9 @@
            outlined color="success"
             type="submit"
             class="mx-auto text-center"
-            
             extra large
-
             v-on:click="editJSON">
+
         Export 
         </v-btn>
     </v-form>   
@@ -73,16 +74,22 @@ export default {
     data() {
         return{
            fill: Json.filled,
-           button: Json.buttons
+           button: Json.buttons,
         }
     },
     methods: {
         editJSON(){
         const data = JSON.stringify(this.fill)
+        const button_options = JSON.stringify(this.button)
+       
     
-    try { alert(data) }
-    catch(e) { alert('j son not saved'); }
-        }
+    try { alert(data), alert(button_options) }
+    catch(e) { alert('json not saved'); }
+        },
+
+    },
+    selectButton(){
+
     }
 
 }

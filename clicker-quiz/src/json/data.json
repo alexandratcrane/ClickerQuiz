@@ -22,20 +22,21 @@
         {
             "question": "Aren't these buttons soooo cute??",
             "button": {
-                "option1":"cute",
-                "option2" : "cute-ish?",
-                "option3": "sooooooo cuteeee",
-                "option4": "cute but also not cute"
-            }
-        },
-
-        {
-            "question": "Yes or no",
-            "button": {
-                "option1": "yes",
-                "option2": "no?"
+                "option1":"0",
+                "option2" : "1",
+                "option3": "2",
+                "option4": "3"
             }
         }
-    
+    ],
+    "TF" : [
+            {"question":"what is the answer?",
+            "options": {
+                "option1":"True",
+                "option2":"False"
+            }
+        }
     ]
+
+    
      }
