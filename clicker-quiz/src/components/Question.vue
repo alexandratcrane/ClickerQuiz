@@ -21,7 +21,7 @@
                         </v-card-title>
 
 
-                        <v-text-field max-width="300" outlined v-model="q.answer" placeholder="Your answer"></v-text-field>
+                        <v-text-field outlined v-model="q.answer" placeholder="Your answer" class="mx-auto"></v-text-field>
                         <p>Your answer: {{ q.answer }}</p>     
 
                     </div>
@@ -39,7 +39,7 @@
                     max-width="400"
                     class="mx-auto">
                     <v-radio-group v-model="radioGroup">
-                    <p> {{b.question}} </p>
+                <v-card-title>{{b.question}} </v-card-title>
 
       <v-radio
          v-for="n in b.button"
@@ -108,8 +108,7 @@ export default {
     margin-left: 50%;
 }
 .v-text-field{
-    margin-left: 50%;
-    
+    width:350px;
 
     }
 
