@@ -43,13 +43,13 @@
                     class="mx-auto">
 
 
-                      <v-card-subtitle
+                    <v-card-subtitle
                     v-if="displayAnswer == true"
                     v-text="'correct answer:' + b.answer"
                     v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
-                    <v-radio-group v-model="multChoiceOneAnswer">
+                    <v-radio-group v-model="b.input">
 
                         <v-card-title>{{b.question}} </v-card-title>
 
@@ -73,7 +73,7 @@
                     v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
-                    <v-radio-group v-model="multChoiceTwoAnswer">
+                    <v-radio-group v-model="b.input">
 
                         <v-card-title>{{b.question}}</v-card-title>
 
@@ -161,16 +161,30 @@ export default {
             }
         },
 
-    checkAgainstAnswer(questionNumber, answer){
+    checkAgainstAnswerFill(questionNumber, answer){
 
         const input = this.processInput(JSON.stringify(this.fill[questionNumber].input))
         
         if (input == answer){
             this.fill[questionNumber].correct = true
-            alert(input)
         } else {
             this.fill[questionNumber].correct = false
         }
+    },
+
+    checkAgainstAnswerMultChoice(){
+
+        alert(JSON.stringify(this.multChoiceOne))
+
+        if (JSON.stringify(this.multChoiceOne) == JSON.stringify(this.multChoiceOne.answer)){
+            this.multChoiceOne.correct = true
+            alert(JSON.stringify(this.multChoiceOne.answer))
+        } else {
+            this.multChoiceOne.correct = false
+        }
+
+
+       // alert(JSON.stringify(this.multChoiceOne.input))
     },
 
 
@@ -181,31 +195,31 @@ export default {
 
     try { 
         
-    this.checkAgainstAnswer(0, 'git')
-    this.checkAgainstAnswer(1, 'earth')
-    this.checkAgainstAnswer(2, 'blue')
-    this.checkAgainstAnswer(3, 'eight')
+    this.checkAgainstAnswerFill(0, this.processInput(JSON.stringify(this.fill[0].answer)))
+    this.checkAgainstAnswerFill(1, this.processInput(JSON.stringify(this.fill[1].answer)))
+    this.checkAgainstAnswerFill(2, this.processInput(JSON.stringify(this.fill[2].answer)))
+    this.checkAgainstAnswerFill(3, this.processInput(JSON.stringify(this.fill[3].answer)))
 
 
 
 //TODO: Create JS funct to validate multiple choice answers! 
 /*
-    if (this.multChoiceOneAnswer == JSON.stringify(this.multChoiceOne.answer)){
+    if (this.multChoiceOne.answer == this.multChoiceOne.input){
             this.multChoiceOne.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
+            alert(this.multChoiceOne.input)
         } else {
             this.multChoiceOne.correct = false
         }
 
 
-     if (this.multChoiceTwoAnswer == JSON.stringify(this.multChoiceTwo.answer)){
+     if (JSON.stringify(this.multChoiceTwo.answer) == JSON.stringify(this.multChoiceTwo.input)){
             this.multChoiceTwo.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
+            alert(JSON.stringify(this.multChoiceOne.input))
         } else {
             this.multChoiceTwo.correct = false
         }
 
-
+/*
     if (this.TFAnswer == JSON.stringify(this.multChoiceTwo.answer)){
             this.multChoiceTwo.correct = true
             alert(JSON.stringify(this.multChoiceOne.answer))

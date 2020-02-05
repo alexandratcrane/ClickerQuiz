@@ -36,7 +36,8 @@
                 "2": "Eliza",
                 "3": "Matthew"
             },
-            "answer":"0",
+            "input": "",
+            "answer": 0,
             "correct": null
         }
 
@@ -52,7 +53,8 @@
                 "2": "21",
                 "3": "100"
             },
-            "answer": "1",
+            "input":"",
+            "answer": 1,
             "correct": null
         }
     ],
@@ -60,10 +62,10 @@
     "TF" : [
             {"question":"The capital of Illinois is Chicago",
             "options": {
-                "0":"True",
-                "1":"False"
+                "0":true,
+                "1":false
             },
-            "answer": "false",
+            "answer": false,
             "correct": null
         }
     ]
