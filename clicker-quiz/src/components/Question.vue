@@ -21,12 +21,12 @@
                         <v-card-subtitle
                         v-if="displayAnswer == true"
                         v-text="'correct answer: ' + q.answer"
-                        v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "> 
+                        > 
                         
                         </v-card-subtitle>
-
+<!--v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "-->
                         <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"
-                        
+                        v-bind:style=" (q.correct ? 'background-color: green' : (q.correct == null ? 'background-color:white':'background-color:red'))"
                         ></v-text-field>
 
                         <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
@@ -57,7 +57,9 @@
                             class="ml-7"
                             v-for="n in b.button"
                             :key="n" 
-                            :label="`${n}`" >
+                            :label="`${n}`" 
+                            > 
+                        
                         </v-radio>
                     </v-radio-group>
                 </v-card> 
@@ -79,9 +81,14 @@
 
                         <v-radio 
                             class="ml-7"
+                            color="indigo"
+                            v-bind:style="b.correct ? 'background-color: green' : 'background-color: red'"
                             v-for="n in b.button"
+                            :value="b.correct"
                             :key="n" 
-                            :label="`${n}`" >
+                            :label="`${n}`" 
+                            > 
+                            <!-- tried changing label to ${b.correct}. b.correct ALWAYS registered as null -->
                         </v-radio>
                     </v-radio-group>
                 </v-card> 
@@ -95,7 +102,8 @@
                      <v-card-subtitle
                     v-if="displayAnswer == true"
                     v-text="'correct answer: ' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    
+                  >
                     </v-card-subtitle>
 
                     
@@ -105,7 +113,11 @@
                             class="ml-7"
                             v-for="n in b.options"
                             :key="n" 
-                            :label="`${n}`">
+                            :label="`${n}`"
+
+                            
+
+                            >
                         </v-radio>
 
                     </v-radio-group>
