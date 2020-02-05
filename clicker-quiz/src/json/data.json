@@ -1,36 +1,51 @@
 
  { "filled" : [
         {
-            "question": "What is your name?",
+            "question": "What do we use for version control in this class?",
             "answer": ""
         },
         {
-            "question": "What is 9 + 10?",
+            "question": "What is 10 + 10?",
             "answer": ""
         },
         
         {
-            "question": "How much sawdust can you put into a Rice Krispie Treat before people start to notice?",
+            "question": "What color is the sky?",
             "answer": ""
         },
         {
-            "question": "What are you proud of, but never have an excuse to talk about?",
+            "question": "How many bits in a byte?",
             "answer": ""
         }
         ],
-    "buttons" : [
+    "multChoice1" : [
         {
-            "question": "Aren't these buttons soooo cute??",
+            "question": "Who is our TA?",
             "button": {
-                "option1":"0",
-                "option2" : "1",
-                "option3": "2",
-                "option4": "3"
+                "option1":"Asbel",
+                "option2" : "Anne",
+                "option3": "Eliza",
+                "option4": "Matthew"
+            }
+        }
+
+        
+    ],
+
+    "multChoice2": [
+        {
+            "question": "what is the IP address for localhost?",
+            "button": {
+                "option1": "60",
+                "option2": "127.0.0.1",
+                "option3": "21",
+                "option4": "100"
             }
         }
     ],
+
     "TF" : [
-            {"question":"what is the answer?",
+            {"question":"The capital of Illinois is Chicago",
             "options": {
                 "option1":"True",
                 "option2":"False"

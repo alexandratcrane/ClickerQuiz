@@ -30,3 +30,11 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+
+.h1{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+</style>
