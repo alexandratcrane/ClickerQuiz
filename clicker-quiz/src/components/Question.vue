@@ -20,12 +20,14 @@
 
                         <v-card-subtitle
                         v-if="displayAnswer == true"
-                        v-text="q.answer"
+                        v-text="'correct answer: ' + q.answer"
                         v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "> 
                         
                         </v-card-subtitle>
 
-                        <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"></v-text-field>
+                        <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"
+                        
+                        ></v-text-field>
 
                         <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
 
@@ -43,7 +45,7 @@
 
                       <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="b.answer"
+                    v-text="'correct answer:' + b.answer"
                     v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
@@ -67,7 +69,7 @@
                     class="mx-auto">
                     <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="b.answer"
+                    v-text="'correct answer: ' + b.answer"
                     v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
@@ -92,7 +94,7 @@
 
                      <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="b.answer"
+                    v-text="'correct answer: ' + b.answer"
                     v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
