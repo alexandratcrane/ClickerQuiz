@@ -1,8 +1,7 @@
 <template>
     <div>
         <v-form
-            ref="form"
-            v-model="valid">
+            ref="form">
      
             <v-col>
 
@@ -19,9 +18,16 @@
                             v-text="q.question">
                         </v-card-title>
 
+                        <v-card-subtitle
+                        v-if="displayAnswer == true"
+                        v-text="q.answer"
+                        v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "> 
+                        
+                        </v-card-subtitle>
 
-                        <v-text-field  outlined v-model="q.answer" placeholder="Your answer" class="mx-auto"></v-text-field>
-                        <p style="text-align: center" v-bind="questionForm" id="correct" >Your answer: {{ q.answer }}</p>     
+                        <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"></v-text-field>
+
+                        <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
 
                     </div>
                 </v-card>
@@ -33,7 +39,14 @@
                     :key="b.question"
                     raised
                     class="mx-auto">
-                    
+
+
+                      <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="b.answer"
+                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    </v-card-subtitle>
+
                     <v-radio-group v-model="multChoiceOneAnswer">
 
                         <v-card-title>{{b.question}} </v-card-title>
@@ -48,11 +61,16 @@
                 </v-card> 
 
                 <v-card
-                    v-for="b in multChoicetwo"
+                    v-for="b in multChoiceTwo"
                     :key="b.question"
                     raised
                     class="mx-auto">
-                    
+                    <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="b.answer"
+                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    </v-card-subtitle>
+
                     <v-radio-group v-model="multChoiceTwoAnswer">
 
                         <v-card-title>{{b.question}}</v-card-title>
@@ -71,10 +89,16 @@
                     :key="b.question"
                     raised
                     class="mx-auto">
-           
+
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="b.answer"
+                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    </v-card-subtitle>
+
+                    
                     <v-radio-group v-model="TFAnswer">
                         <v-card-title>{{b.question}} </v-card-title>
-
                         <v-radio 
                             class="ml-7"
                             v-for="n in b.options"
@@ -107,39 +131,101 @@ export default {
     data() {
         return{
            fill: Json.filled,
-           button: Json.buttons,
+
            multChoiceOne: Json.multChoice1,
-           multChoicetwo: Json.multChoice2,
+           multChoiceTwo: Json.multChoice2,
            trueFalse: Json.TF,
 
            multChoiceOneAnswer: '',
            multChoiceTwoAnswer: '',
-           TFAnswer: ''
+           TFAnswer: '',
+
+           displayAnswer: false,
+           
+           
         }
     },
     methods: {
-        validateJSON(){
-        const data = JSON.stringify(this.fill)
-
-       
-       
-    
-    try { alert(data)
+        processInput(input){
+        input = input.toLowerCase();
+        input = input.replace(/['"]+/g, '')
         
-        alert(this.multChoiceOneAnswer)
-        alert(this.multChoiceTwoAnswer)
-        alert(this.TFAnswer) }
-    catch(e) { alert('json not saved'); }
+        if (input == "" || /\s/.test(input)){
+            alert('No spaces in your input. This answer will not be accepted.')
+            input = ''
+            return;
+        } else { 
+            return input;
+            }
         },
 
-        correctAnswer(){
-            document.getElementById('correct').style.color="green";
+    checkAgainstAnswer(questionNumber, answer){
+
+        const input = this.processInput(JSON.stringify(this.fill[questionNumber].input))
+        
+        if (input == answer){
+            this.fill[questionNumber].correct = true
+            alert(input)
+        } else {
+            this.fill[questionNumber].correct = false
         }
+    },
+
+
+
+
+    validateJSON(){
+
+
+    try { 
+        
+    this.checkAgainstAnswer(0, 'git')
+    this.checkAgainstAnswer(1, 'earth')
+    this.checkAgainstAnswer(2, 'blue')
+    this.checkAgainstAnswer(3, 'eight')
+
+
+
+//TODO: Create JS funct to validate multiple choice answers! 
+/*
+    if (this.multChoiceOneAnswer == JSON.stringify(this.multChoiceOne.answer)){
+            this.multChoiceOne.correct = true
+            alert(JSON.stringify(this.multChoiceOne.answer))
+        } else {
+            this.multChoiceOne.correct = false
+        }
+
+
+     if (this.multChoiceTwoAnswer == JSON.stringify(this.multChoiceTwo.answer)){
+            this.multChoiceTwo.correct = true
+            alert(JSON.stringify(this.multChoiceOne.answer))
+        } else {
+            this.multChoiceTwo.correct = false
+        }
+
+
+    if (this.TFAnswer == JSON.stringify(this.multChoiceTwo.answer)){
+            this.multChoiceTwo.correct = true
+            alert(JSON.stringify(this.multChoiceOne.answer))
+        } else {
+            this.multChoiceTwo.correct = false
+        }
+*/
+  this.displayAnswer =  true
+
+    }catch(e) { alert(e); }
+
+
+
     
-    } 
-    
+}
+
+    }
 
 }
+    
+
+
 </script>
 
 <style scoped>
@@ -162,6 +248,7 @@ export default {
     margin-right: 50%;
     width: 450px;
     padding: 10px 20px;
+    margin-top: 20px;
     
 }
     

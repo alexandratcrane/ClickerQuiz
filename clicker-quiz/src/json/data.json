@@ -2,31 +2,42 @@
  { "filled" : [
         {
             "question": "What do we use for version control in this class?",
-            "answer": ""
+            "input": "",
+            "answer": "git",
+            "correct": null
+            
         },
         {
-            "question": "What is 10 + 10?",
-            "answer": ""
-        },
+            "question": "What planet are we on?",
+            "input": "",
+            "answer":  "earth",
+            "correct": null
+     },
         
         {
             "question": "What color is the sky?",
-            "answer": ""
-        },
+            "input": "",
+            "answer":  "blue",
+            "correct": null    
+    },
         {
             "question": "How many bits in a byte?",
-            "answer": ""
-        }
+            "input": "",
+            "answer": "eight",
+            "correct": null     
+     }
         ],
     "multChoice1" : [
         {
             "question": "Who is our TA?",
             "button": {
-                "option1":"Asbel",
-                "option2" : "Anne",
-                "option3": "Eliza",
-                "option4": "Matthew"
-            }
+                "0":"Asbel",
+                "1" : "Anne",
+                "2": "Eliza",
+                "3": "Matthew"
+            },
+            "answer":"0",
+            "correct": null
         }
 
         
@@ -36,20 +47,24 @@
         {
             "question": "what is the IP address for localhost?",
             "button": {
-                "option1": "60",
-                "option2": "127.0.0.1",
-                "option3": "21",
-                "option4": "100"
-            }
+                "0": "60",
+                "1": "127.0.0.1",
+                "2": "21",
+                "3": "100"
+            },
+            "answer": "1",
+            "correct": null
         }
     ],
 
     "TF" : [
             {"question":"The capital of Illinois is Chicago",
             "options": {
-                "option1":"True",
-                "option2":"False"
-            }
+                "0":"True",
+                "1":"False"
+            },
+            "answer": "false",
+            "correct": null
         }
     ]
 
