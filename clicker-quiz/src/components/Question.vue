@@ -24,11 +24,12 @@
                         > 
                         
                         </v-card-subtitle>
-<!--v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "-->
                         <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"
+                        
                         v-bind:style=" (q.correct ? 'background-color: green' : (q.correct == null ? 'background-color:white':'background-color:red'))"
+                        
+        
                         ></v-text-field>
-
                         <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
 
                     </div>
@@ -55,6 +56,7 @@
 
                         <v-radio 
                             class="ml-7"
+                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
                             v-for="n in b.button"
                             :key="n" 
                             :label="`${n}`" 
@@ -72,7 +74,7 @@
                     <v-card-subtitle
                     v-if="displayAnswer == true"
                     v-text="'correct answer: ' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    >
                     </v-card-subtitle>
 
                     <v-radio-group v-model="multChoiceTwoAnswer">
@@ -81,14 +83,13 @@
 
                         <v-radio 
                             class="ml-7"
-                            color="indigo"
-                            v-bind:style="b.correct ? 'background-color: green' : 'background-color: red'"
+                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
                             v-for="n in b.button"
                             :value="b.correct"
                             :key="n" 
                             :label="`${n}`" 
                             > 
-                            <!-- tried changing label to ${b.correct}. b.correct ALWAYS registered as null -->
+                            <!-- tried changing label to ${b.correct}. b.correct ALWAYS registered as null right now everything is being registered as null, which is why bg is blue-->
                         </v-radio>
                     </v-radio-group>
                 </v-card> 
@@ -111,6 +112,8 @@
                         <v-card-title>{{b.question}} </v-card-title>
                         <v-radio 
                             class="ml-7"
+                                                        v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
+
                             v-for="n in b.options"
                             :key="n" 
                             :label="`${n}`"
