@@ -18,11 +18,12 @@
                         <v-card-title
                             class="Headline"
                             v-text="q.question">
+                            
                         </v-card-title>
 
 
                         <v-text-field outlined v-model="q.answer" placeholder="Your answer" class="mx-auto"></v-text-field>
-                        <p>Your answer: {{ q.answer }}</p>     
+                        <p  v-bind="questionForm" id="correct" >Your answer: {{ q.answer }}</p>     
 
                     </div>
                 </v-card>
@@ -41,28 +42,31 @@
                     <v-radio-group v-model="radioGroup">
                 <v-card-title>{{b.question}} </v-card-title>
 
-      <v-radio
+      <v-radio 
+         class="ml-7"
          v-for="n in b.button"
          :key="n" 
          :label="`${n}`"
       ></v-radio>
     </v-radio-group>
-                </v-card>
+                </v-card>       
         </v-col>
 
-    
-
-        <v-btn
-            :disabled="!valid"
+    </v-form>   
+    <v-btn
+            
            outlined color="success"
             type="submit"
-            class="mx-auto text-center"
+         
+           class="justify-center"
+            
             extra large
-            v-on:click="editJSON">
 
+            v-on:click="correctAnswer()"
+            
+            >
         Export 
         </v-btn>
-    </v-form>   
 </div>
 </template>
 
@@ -83,14 +87,16 @@ export default {
         const button_options = JSON.stringify(this.button)
        
     
-    try { alert(data), alert(button_options) }
+    try { alert(data) }
     catch(e) { alert('json not saved'); }
         },
 
-    },
-    selectButton(){
-
-    }
+        correctAnswer(){
+            document.getElementById('correct').style.color="green";
+        }
+    
+    } //methods
+    
 
 }
 </script>
@@ -98,14 +104,16 @@ export default {
 <style scoped>
 .v-card__text, .v-card__title  {
   word-break: normal; 
-  
+  color:black;
   text-align: center;
 }
 
 .v-btn{
-    margin-bottom: 5%;
-
-    margin-left: 50%;
+   margin-bottom:10pt;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 .v-text-field{
     width:350px;
