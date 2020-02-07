@@ -30,7 +30,7 @@
                         
         
                         ></v-text-field>
-                        <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
+                    <!--    <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     -->
 
                     </div>
                 </v-card>
@@ -71,11 +71,6 @@
                     :key="b.question"
                     raised
                     class="mx-auto">
-                    <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer"
-                    >
-                    </v-card-subtitle>
 
                     <v-radio-group v-model="multChoiceTwoAnswer">
 
@@ -92,6 +87,12 @@
                             <!-- tried changing label to ${b.correct}. b.correct ALWAYS registered as null right now everything is being registered as null, which is why bg is blue-->
                         </v-radio>
                     </v-radio-group>
+
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct answer: ' + b.answer"
+                    >
+                    </v-card-subtitle>
                 </v-card> 
 
                 <v-card
@@ -100,19 +101,12 @@
                     raised
                     class="mx-auto">
 
-                     <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer"
-                    
-                  >
-                    </v-card-subtitle>
-
                     
                     <v-radio-group v-model="TFAnswer">
                         <v-card-title>{{b.question}} </v-card-title>
                         <v-radio 
                             class="ml-7"
-                                                        v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
+                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:#e6eeff':'background-color:red'))"
 
                             v-for="n in b.options"
                             :key="n" 
@@ -124,6 +118,11 @@
                         </v-radio>
 
                     </v-radio-group>
+
+                    <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct answer: ' + b.answer">
+                    </v-card-subtitle>
                 </v-card> 
                    
             </v-col>
@@ -187,6 +186,15 @@ export default {
             this.fill[questionNumber].correct = false
         }
     },
+    checkAgainstAnswerMultiple(questionNumber, answer){
+        const input = this.processInput(JSON.stringify(this.multChoiceOne[questionNumber].answer))
+         if (input == answer){
+            this.multChoiceOne[questionNumber].correct = true
+            alert(input)
+        } else {
+            this.multChoiceOne[questionNumber].correct = false
+        }
+    },
 
 
 
@@ -200,6 +208,8 @@ export default {
     this.checkAgainstAnswer(1, 'earth')
     this.checkAgainstAnswer(2, 'blue')
     this.checkAgainstAnswer(3, 'eight')
+    this.checkAgainstAnswerMultiple(0,'0')
+    
 
 
 
