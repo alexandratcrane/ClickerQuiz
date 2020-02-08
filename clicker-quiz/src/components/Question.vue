@@ -167,7 +167,7 @@ export default {
         input = input.replace(/['"]+/g, '')
         
         if (input == "" || /\s/.test(input)){
-            alert('No spaces in your input. This answer will not be accepted.')
+            //alert('No spaces in your input. This answer will not be accepted.')
             input = ''
             return;
         } else { 
@@ -181,18 +181,33 @@ export default {
         
         if (input == answer){
             this.fill[questionNumber].correct = true
-            alert(input)
+            //alert(input)
         } else {
             this.fill[questionNumber].correct = false
         }
     },
-    checkAgainstAnswerMultiple(questionNumber, answer){
+    /*MAIN ISSUE
+    I tried copying what paulina did in checkagainst answer. it mostly works in that it has the correct answer as the input
+    but i have no idea how to transform what button the user chooses as a valid answer input to compare to
+   */
+   checkAgainstAnswerMultiple(questionNumber, answer){
         const input = this.processInput(JSON.stringify(this.multChoiceOne[questionNumber].answer))
          if (input == answer){
             this.multChoiceOne[questionNumber].correct = true
-            alert(input)
+            //alert(input)
         } else {
             this.multChoiceOne[questionNumber].correct = false
+        }
+    },
+    checkTF(questionNumber, answer){
+        const input = this.processInput(JSON.stringify(this.trueFalse[questionNumber].answer))
+        alert(input) //returns false
+        alert(answer)//retured 0 when i click true or false
+         if (input == answer){
+            this.trueFalse[questionNumber].correct = true
+            
+        } else {
+            this.trueFalse[questionNumber].correct = false
         }
     },
 
@@ -209,6 +224,7 @@ export default {
     this.checkAgainstAnswer(2, 'blue')
     this.checkAgainstAnswer(3, 'eight')
     this.checkAgainstAnswerMultiple(0,'0')
+    this.checkTF(0,'false')
     
 
 
