@@ -17,19 +17,19 @@
                             v-text="q.question">
                         </v-card-title>
 
-                        <v-card-subtitle
-                        v-if="displayAnswer == true"
-                        v-text="'correct answer: ' + q.answer"
-                        v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "> 
                         
-                        </v-card-subtitle>
 
                         <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"
                         
                         ></v-text-field>
 
                         <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
-
+                    <v-card-subtitle
+                        v-if="displayAnswer == true"
+                        v-text="'correct answer: ' + q.answer"
+                        v-bind:style=" q.correct ? 'background-color: #79d279' : 'background-color: #e60000' "> 
+                        
+                        </v-card-subtitle>
                     </div>
                 </v-card>
               
@@ -38,11 +38,7 @@
                     class="mx-auto">
 
 
-                    <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct input number:  ' + one.answer"
-                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
-                    </v-card-subtitle>
+                   
 
                     <v-radio-group  v-model="one.input">
 
@@ -54,6 +50,11 @@
                             :label="`${n}`" >
                         </v-radio>
                     </v-radio-group>
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct input number:  ' + one.answer"
+                    v-bind:style=" one.correct ? 'background-color: #79d279' : 'background-color: #e60000' ">
+                    </v-card-subtitle>
                 </v-card> 
 
 
@@ -62,11 +63,7 @@
                     class="mx-auto">
 
 
-                    <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer:  ' + two.answer"
-                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
-                    </v-card-subtitle>
+                   
 
                     <v-radio-group  v-model="two.input">
 
@@ -78,6 +75,12 @@
                             :label="`${n}`" >
                         </v-radio>
                     </v-radio-group>
+
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct input number:  ' + two.answer"
+                    v-bind:style=" one.correct ? 'background-color: #79d279' : 'background-color: #e60000' ">
+                    </v-card-subtitle>
                 </v-card> 
 
 
@@ -85,11 +88,7 @@
                     raised
                     class="mx-auto">
 
-                     <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + trueFalse.answer"
-                    v-bind:style=" trueFalse.correct ? 'background-color: green' : 'background-color: red' ">
-                    </v-card-subtitle>
+                    
 
                     
                     <v-radio-group v-model="trueFalse.input">
@@ -102,6 +101,12 @@
                         </v-radio>
 
                     </v-radio-group>
+
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct answer: ' + trueFalse.answer"
+                    v-bind:style=" trueFalse.correct ? 'background-color: #79d279' : 'background-color: #e60000' ">
+                    </v-card-subtitle>
                 </v-card> 
                       
 
