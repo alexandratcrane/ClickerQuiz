@@ -4,8 +4,7 @@
             ref="form">
      
             <v-col>
-
-                <v-card
+              <v-card
                      v-for="q in fill"
                     :key="q.question"
                     raised
@@ -33,86 +32,85 @@
 
                     </div>
                 </v-card>
- 
-                
-                
+              
                 <v-card
-                    v-for="b in multChoiceOne"
-                    :key="b.question"
                     raised
                     class="mx-auto">
 
 
                     <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="'correct answer:' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    v-text="'correct input number:  ' + one.answer"
+                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
-                    <v-radio-group v-model="b.input">
+                    <v-radio-group  v-model="one.input">
 
-                        <v-card-title>{{b.question}} </v-card-title>
+                        <v-card-title>{{one.question}}</v-card-title>
 
                         <v-radio 
-                            class="ml-7"
-                            v-for="n in b.button"
+                            v-for="n in one.button"
                             :key="n" 
                             :label="`${n}`" >
                         </v-radio>
                     </v-radio-group>
                 </v-card> 
 
+
                 <v-card
-                    v-for="b in multChoiceTwo"
-                    :key="b.question"
                     raised
                     class="mx-auto">
+
+
                     <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    v-text="'correct answer:  ' + two.answer"
+                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
-                    <v-radio-group v-model="b.input">
+                    <v-radio-group  v-model="two.input">
 
-                        <v-card-title>{{b.question}}</v-card-title>
+                        <v-card-title>{{two.question}}</v-card-title>
 
                         <v-radio 
-                            class="ml-7"
-                            v-for="n in b.button"
+                            v-for="n in two.button"
                             :key="n" 
                             :label="`${n}`" >
                         </v-radio>
                     </v-radio-group>
                 </v-card> 
 
+
                 <v-card
-                    v-for="b in trueFalse"
-                    :key="b.question"
                     raised
                     class="mx-auto">
 
                      <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
+                    v-text="'correct answer: ' + trueFalse.answer"
+                    v-bind:style=" trueFalse.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
 
                     
-                    <v-radio-group v-model="TFAnswer">
-                        <v-card-title>{{b.question}} </v-card-title>
+                    <v-radio-group v-model="trueFalse.input">
+                        <v-card-title>{{trueFalse.question}} </v-card-title>
                         <v-radio 
                             class="ml-7"
-                            v-for="n in b.options"
+                            v-for="n in trueFalse.options"
                             :key="n" 
                             :label="`${n}`">
                         </v-radio>
 
                     </v-radio-group>
                 </v-card> 
+                      
+
                    
+                 
             </v-col>
+             
         </v-form>   
+       
     <v-btn
         outlined color="success"
         type="submit"
@@ -121,7 +119,7 @@
         v-on:click="validateJSON()">
         Submit
         </v-btn>
-
+  
 </div>
 </template>
 
@@ -134,13 +132,11 @@ export default {
         return{
            fill: Json.filled,
 
-           multChoiceOne: Json.multChoice1,
-           multChoiceTwo: Json.multChoice2,
+           one: Json.multChoice1,
+
+           two: Json.multChoice2,
            trueFalse: Json.TF,
 
-           multChoiceOneAnswer: '',
-           multChoiceTwoAnswer: '',
-           TFAnswer: '',
 
            displayAnswer: false,
            
@@ -172,24 +168,7 @@ export default {
         }
     },
 
-    checkAgainstAnswerMultChoice(){
-
-        alert(JSON.stringify(this.multChoiceOne))
-
-        if (JSON.stringify(this.multChoiceOne) == JSON.stringify(this.multChoiceOne.answer)){
-            this.multChoiceOne.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
-        } else {
-            this.multChoiceOne.correct = false
-        }
-
-
-       // alert(JSON.stringify(this.multChoiceOne.input))
-    },
-
-
-
-
+   
     validateJSON(){
 
 
@@ -201,33 +180,27 @@ export default {
     this.checkAgainstAnswerFill(3, this.processInput(JSON.stringify(this.fill[3].answer)))
 
 
-
-//TODO: Create JS funct to validate multiple choice answers! 
-/*
-    if (this.multChoiceOne.answer == this.multChoiceOne.input){
-            this.multChoiceOne.correct = true
-            alert(this.multChoiceOne.input)
-        } else {
-            this.multChoiceOne.correct = false
-        }
+if (this.one.input == this.one.answer){
+    this.one.correct = true
+}else{
+    this.one.correct = false
+}
 
 
-     if (JSON.stringify(this.multChoiceTwo.answer) == JSON.stringify(this.multChoiceTwo.input)){
-            this.multChoiceTwo.correct = true
-            alert(JSON.stringify(this.multChoiceOne.input))
-        } else {
-            this.multChoiceTwo.correct = false
-        }
+if (this.two.input == this.two.answer){
+    this.two.correct = true
+}else{
+    this.two.correct = false
+}
 
-/*
-    if (this.TFAnswer == JSON.stringify(this.multChoiceTwo.answer)){
-            this.multChoiceTwo.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
-        } else {
-            this.multChoiceTwo.correct = false
-        }
-*/
+if (this.trueFalse.input == 1){
+    this.trueFalse.correct = true
+}else{
+    this.trueFalse.correct = false
+}
+
   this.displayAnswer =  true
+
 
     }catch(e) { alert(e); }
 
