@@ -27,46 +27,44 @@
             "correct": null     
      }
         ],
-    "multChoice1" : [
-        {
-            "question": "Who is our TA?",
-            "button": {
-                "0":"Asbel",
-                "1" : "Anne",
-                "2": "Eliza",
-                "3": "Matthew"
+        "multChoice1": 
+            {
+                "question": "Who is our TA?",
+                "button": {
+                    "0": "0.) Asbel",
+                    "1": "1.) Jennifer",
+                    "2": "2.) Anne",
+                    "3": "3.) Alex"
+                },
+                "input": "",
+                "answer": 0,
+                "correct": null
             },
-            "answer":"0",
-            "correct": null
-        }
 
-        
-    ],
-
-    "multChoice2": [
+    "multChoice2": 
         {
             "question": "what is the IP address for localhost?",
             "button": {
-                "0": "60",
-                "1": "127.0.0.1",
-                "2": "21",
-                "3": "100"
+                "0": "0.) 60",
+                "1": "1.) 1127.0.0.1",
+                "2": "2.) 21",
+                "3": "3.) 100"
             },
-            "answer": "1",
+            "input":"",
+            "answer": 1,
             "correct": null
-        }
-    ],
+        },
 
-    "TF" : [
+    "TF" : 
             {"question":"The capital of Illinois is Chicago",
             "options": {
-                "0":"True",
-                "1":"False"
+                "0":true,
+                "1":false
             },
-            "answer": "false",
-            "correct": null
+            "answer": false,
+            "correct": null,
+            "input":""
         }
-    ]
 
     
      }

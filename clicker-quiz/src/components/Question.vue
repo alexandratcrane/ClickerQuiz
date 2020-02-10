@@ -4,8 +4,7 @@
             ref="form">
      
             <v-col>
-
-                <v-card
+              <v-card
                      v-for="q in fill"
                     :key="q.question"
                     raised
@@ -21,113 +20,97 @@
                         <v-card-subtitle
                         v-if="displayAnswer == true"
                         v-text="'correct answer: ' + q.answer"
-                        > 
+                        v-bind:style=" q.correct ? 'background-color: green' : 'background-color: red' "> 
                         
                         </v-card-subtitle>
+
                         <v-text-field  outlined v-model="q.input" placeholder="Your answer" class="mx-auto"
                         
-                        v-bind:style=" (q.correct ? 'background-color: green' : (q.correct == null ? 'background-color:white':'background-color:red'))"
-                        
-        
                         ></v-text-field>
-                    <!--    <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     -->
+
+                        <p style="text-align: center" id="correct" >Your answer: {{ q.input }}</p>     
 
                     </div>
                 </v-card>
- 
-                
-                
+              
                 <v-card
-                    v-for="b in multChoiceOne"
-                    :key="b.question"
                     raised
                     class="mx-auto">
 
-
-                      <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer:' + b.answer"
-                    v-bind:style=" b.correct ? 'background-color: green' : 'background-color: red' ">
-                    </v-card-subtitle>
-
-                    <v-radio-group v-model="multChoiceOneAnswer">
-
-                        <v-card-title>{{b.question}} </v-card-title>
-
-                        <v-radio 
-                            class="ml-7"
-                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
-                            v-for="n in b.button"
-                            :key="n" 
-                            :label="`${n}`" 
-                            > 
-                        
-                        </v-radio>
-                    </v-radio-group>
-                </v-card> 
-
-                <v-card
-                    v-for="b in multChoiceTwo"
-                    :key="b.question"
-                    raised
-                    class="mx-auto">
-
-                    <v-radio-group v-model="multChoiceTwoAnswer">
-
-                        <v-card-title>{{b.question}}</v-card-title>
-
-                        <v-radio 
-                            class="ml-7"
-                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:blue':'background-color:red'))"
-                            v-for="n in b.button"
-                            :value="b.correct"
-                            :key="n" 
-                            :label="`${n}`" 
-                            > 
-                            <!-- tried changing label to ${b.correct}. b.correct ALWAYS registered as null right now everything is being registered as null, which is why bg is blue-->
-                        </v-radio>
-                    </v-radio-group>
-
-                     <v-card-subtitle
-                    v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer"
-                    >
-                    </v-card-subtitle>
-                </v-card> 
-
-                <v-card
-                    v-for="b in trueFalse"
-                    :key="b.question"
-                    raised
-                    class="mx-auto">
-
-                    
-                    <v-radio-group v-model="TFAnswer">
-                        <v-card-title>{{b.question}} </v-card-title>
-                        <v-radio 
-                            class="ml-7"
-                            v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:#e6eeff':'background-color:red'))"
-                            click="b.input=n"
-
-                            v-for="n in b.options"
-                            :key="n" 
-                            :label="`${n}`"
-
-                            
-
-                            >
-                        </v-radio>
-
-                    </v-radio-group>
 
                     <v-card-subtitle
                     v-if="displayAnswer == true"
-                    v-text="'correct answer: ' + b.answer">
+                    v-text="'correct input number:  ' + one.answer"
+                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
                     </v-card-subtitle>
+
+                    <v-radio-group  v-model="one.input">
+
+                        <v-card-title>{{one.question}}</v-card-title>
+
+                        <v-radio 
+                            v-for="n in one.button"
+                            :key="n" 
+                            :label="`${n}`" >
+                        </v-radio>
+                    </v-radio-group>
                 </v-card> 
+
+
+                <v-card
+                    raised
+                    class="mx-auto">
+
+
+                    <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct answer:  ' + two.answer"
+                    v-bind:style=" one.correct ? 'background-color: green' : 'background-color: red' ">
+                    </v-card-subtitle>
+
+                    <v-radio-group  v-model="two.input">
+
+                        <v-card-title>{{two.question}}</v-card-title>
+
+                        <v-radio 
+                            v-for="n in two.button"
+                            :key="n" 
+                            :label="`${n}`" >
+                        </v-radio>
+                    </v-radio-group>
+                </v-card> 
+
+
+                <v-card
+                    raised
+                    class="mx-auto">
+
+                     <v-card-subtitle
+                    v-if="displayAnswer == true"
+                    v-text="'correct answer: ' + trueFalse.answer"
+                    v-bind:style=" trueFalse.correct ? 'background-color: green' : 'background-color: red' ">
+                    </v-card-subtitle>
+
+                    
+                    <v-radio-group v-model="trueFalse.input">
+                        <v-card-title>{{trueFalse.question}} </v-card-title>
+                        <v-radio 
+                            class="ml-7"
+                            v-for="n in trueFalse.options"
+                            :key="n" 
+                            :label="`${n}`">
+                        </v-radio>
+
+                    </v-radio-group>
+                </v-card> 
+                      
+
                    
+                 
             </v-col>
+             
         </v-form>   
+       
     <v-btn
         outlined color="success"
         type="submit"
@@ -136,7 +119,7 @@
         v-on:click="validateJSON()">
         Submit
         </v-btn>
-
+  
 </div>
 </template>
 
@@ -149,13 +132,11 @@ export default {
         return{
            fill: Json.filled,
 
-           multChoiceOne: Json.multChoice1,
-           multChoiceTwo: Json.multChoice2,
+           one: Json.multChoice1,
+
+           two: Json.multChoice2,
            trueFalse: Json.TF,
 
-           multChoiceOneAnswer: '',
-           multChoiceTwoAnswer: '',
-           TFAnswer: '',
 
            displayAnswer: false,
            
@@ -168,7 +149,7 @@ export default {
         input = input.replace(/['"]+/g, '')
         
         if (input == "" || /\s/.test(input)){
-            //alert('No spaces in your input. This answer will not be accepted.')
+            alert('No spaces in your input. This answer will not be accepted.')
             input = ''
             return;
         } else { 
@@ -176,86 +157,50 @@ export default {
             }
         },
 
-    checkAgainstAnswer(questionNumber, answer){
+    checkAgainstAnswerFill(questionNumber, answer){
 
         const input = this.processInput(JSON.stringify(this.fill[questionNumber].input))
         
         if (input == answer){
             this.fill[questionNumber].correct = true
-            //alert(input)
         } else {
             this.fill[questionNumber].correct = false
         }
     },
-    /*MAIN ISSUE
-    I tried copying what paulina did in checkagainst answer. it mostly works in that it has the correct answer as the input
-    but i have no idea how to transform what button the user chooses as a valid answer input to compare to
-   */
-   checkAgainstAnswerMultiple(questionNumber, answer){
-        const input = this.processInput(JSON.stringify(this.multChoiceOne[questionNumber].answer))
-         if (input == answer){
-            this.multChoiceOne[questionNumber].correct = true
-            //alert(input)
-        } else {
-            this.multChoiceOne[questionNumber].correct = false
-        }
-    },
-    checkTF(questionNumber, answer){
-        const input = this.processInput(JSON.stringify(this.trueFalse[questionNumber].input))
-        alert(input) //returns false
-        alert(answer)//retured 0 when i click true or false
-         if (input == answer){
-            this.trueFalse[questionNumber].correct = true
-            
-        } else {
-            this.trueFalse[questionNumber].correct = false
-        }
-    },
 
-
-
-
+   
     validateJSON(){
 
 
     try { 
         
-    this.checkAgainstAnswer(0, 'git')
-    this.checkAgainstAnswer(1, 'earth')
-    this.checkAgainstAnswer(2, 'blue')
-    this.checkAgainstAnswer(3, 'eight')
-    this.checkAgainstAnswerMultiple(0,'0')
-    this.checkTF(0,'false')
-    
+    this.checkAgainstAnswerFill(0, this.processInput(JSON.stringify(this.fill[0].answer)))
+    this.checkAgainstAnswerFill(1, this.processInput(JSON.stringify(this.fill[1].answer)))
+    this.checkAgainstAnswerFill(2, this.processInput(JSON.stringify(this.fill[2].answer)))
+    this.checkAgainstAnswerFill(3, this.processInput(JSON.stringify(this.fill[3].answer)))
 
 
-
-//TODO: Create JS funct to validate multiple choice answers! 
-/*
-    if (this.multChoiceOneAnswer == JSON.stringify(this.multChoiceOne.answer)){
-            this.multChoiceOne.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
-        } else {
-            this.multChoiceOne.correct = false
-        }
+if (this.one.input == this.one.answer){
+    this.one.correct = true
+}else{
+    this.one.correct = false
+}
 
 
-     if (this.multChoiceTwoAnswer == JSON.stringify(this.multChoiceTwo.answer)){
-            this.multChoiceTwo.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
-        } else {
-            this.multChoiceTwo.correct = false
-        }
+if (this.two.input == this.two.answer){
+    this.two.correct = true
+}else{
+    this.two.correct = false
+}
 
+if (this.trueFalse.input == 1){
+    this.trueFalse.correct = true
+}else{
+    this.trueFalse.correct = false
+}
 
-    if (this.TFAnswer == JSON.stringify(this.multChoiceTwo.answer)){
-            this.multChoiceTwo.correct = true
-            alert(JSON.stringify(this.multChoiceOne.answer))
-        } else {
-            this.multChoiceTwo.correct = false
-        }
-*/
   this.displayAnswer =  true
+
 
     }catch(e) { alert(e); }
 

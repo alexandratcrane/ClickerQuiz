@@ -2,64 +2,41 @@
 
 Comp 330 project 
 
-Project description here
+This project is a trivia quiz that is to be used for entertainment purposes. The questions are straightforward and are meant to be silly.
 
 
-pictures
-![alt text](http://url/to/img.png)
+![demo image](./clicker-quiz/src/assets/demo.png)
 
-## Getting Started
+## Installation instructions
 
-
-Go to page link  / video demo 
+An installation video demo is available under the announcements section for our group in [basecamp](https://3.basecamp.com/3842445/buckets/15310236/messages/2400647929)
 
 To run locally:
+
+```
+git clone https://github.com/alexandratcrane/ClickerQuiz.git 
+```
+
+After cloning, cd into the repository
 
 ```
 cd clicker-app
 ```
 
 ```
-npm start
-```
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Installing
-
-
-
-```
-git clone https://github.com/alexandratcrane/ClickerQuiz.git 
+npm install
 ```
 
+```
+npm run serve
+```
 
+after that, the server should be up and running at the default port [localhost:8080](http://localhost:8080/) 
 
 
 ## Built With
 
-* React
-* Heroku
-* DB choice
-
+* Vuejs CLI 3
 
 
 ## Authors
@@ -69,5 +46,10 @@ git clone https://github.com/alexandratcrane/ClickerQuiz.git
 * **Paulina Adamski** - [github](https://github.com/paulinusia)
 
 
-## Acknowledgments
+## Acknowledgments and sources used
+
+*  [vuetify documentation](https://vuetifyjs.com/en/getting-started/quick-start)
+* [vuejs get help forums](https://forum.vuejs.org/t/cannot-read-property-of-undefined-yet-the-data-is-displayed/15494/5)
+* [vue documentation for the CLI](https://vuejs.org/v2/guide/components.html)
+* [stackoverflow](https://stackoverflow.com/questions/34865348/vuejs-set-a-radio-button-checked-if-statement-is-true)
 
