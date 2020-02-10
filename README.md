@@ -6,7 +6,7 @@ This project is a trivia quiz that is to be used for entertainment purposes. The
 
 
 pictures
-![demo image](../clicker-quiz/src/assets/demo.png)
+![demo image](./clicker-quiz/src/assets/demo.png)
 
 ## Installation instructions
 
