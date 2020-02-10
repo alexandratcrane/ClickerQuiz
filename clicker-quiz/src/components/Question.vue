@@ -107,6 +107,7 @@
                         <v-radio 
                             class="ml-7"
                             v-bind:style="(b.correct ? 'background-color: green' : (b.correct == null ? 'background-color:#e6eeff':'background-color:red'))"
+                            click="b.input=n"
 
                             v-for="n in b.options"
                             :key="n" 
@@ -200,7 +201,7 @@ export default {
         }
     },
     checkTF(questionNumber, answer){
-        const input = this.processInput(JSON.stringify(this.trueFalse[questionNumber].answer))
+        const input = this.processInput(JSON.stringify(this.trueFalse[questionNumber].input))
         alert(input) //returns false
         alert(answer)//retured 0 when i click true or false
          if (input == answer){
