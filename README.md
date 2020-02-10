@@ -5,10 +5,11 @@ Comp 330 project
 This project is a trivia quiz that is to be used for entertainment purposes. The questions are straightforward and are meant to be silly.
 
 
-pictures
 ![demo image](./clicker-quiz/src/assets/demo.png)
 
 ## Installation instructions
+
+An installation video demo is available under the announcements section for our group in [basecamp](https://3.basecamp.com/3842445/buckets/15310236/messages/2400647929)
 
 To run locally:
 
