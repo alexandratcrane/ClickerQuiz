@@ -52,5 +52,5 @@ after that, the server should be up and running at the default port [localhost:8
 * [vuejs get help forums](https://forum.vuejs.org/t/cannot-read-property-of-undefined-yet-the-data-is-displayed/15494/5)
 * [vue documentation for the CLI](https://vuejs.org/v2/guide/components.html)
 * [stackoverflow](https://stackoverflow.com/questions/34865348/vuejs-set-a-radio-button-checked-if-statement-is-true)
-* [JSON instructions] (https://www.w3schools.com/js/js_json_intro.asp)
+* [JSON instructions](https://www.w3schools.com/js/js_json_intro.asp)
 
