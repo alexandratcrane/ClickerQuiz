@@ -2,14 +2,14 @@
 
 Comp 330 project 
 
-This is an in-class project where we create a quiz for entertainment purposes. The questions are straightforward and are meant to be silly. In the near future, we will be creating a client/server system where instructors will be able to run a server that the students will take the quiz on. Stay tuned!
+This is an in-class project where we create a quiz in order to, ultimately, help teachers and students. The questions are straightforward and are meant to be silly. In the near future, we will be creating a client/server system where instructors will be able to run a server that the students will take the quiz on. Stay tuned!
 
 
 ![demo image](./clicker-quiz/src/assets/demo.png)
 
 ## Installation instructions
 
-An installation video demo is available under the announcements section for our group in [basecamp](https://3.basecamp.com/3842445/buckets/15310236/messages/2400647929)
+An installation video demo is available under the announcements section for our group on [youtube](https://www.youtube.com/watch?v=uRLDisjbjMY240064929).
 
 To run locally:
 
@@ -40,10 +40,19 @@ after that, the server should be up and running at the default port [localhost:8
 
 
 ## Authors
-
+###Phase 1
 * **Alexandra Crane** - [github](https://github.com/alexandratcrane)
 
 * **Paulina Adamski** - [github](https://github.com/paulinusia)
+
+###Phase 2
+* **Alexandra Crane** - [github](https://github.com/alexandratcrane)
+
+* **Paulina Adamski** - [github](https://github.com/paulinusia)
+
+* **Jack Brooks** - [github](https://github.com/jbrooks11)
+
+* **Alex Rose** - [github](https://github.com/acrose99)
 
 
 ## Acknowledgments and sources used
